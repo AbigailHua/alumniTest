@@ -41,7 +41,12 @@
     },
     methods:{
       doLogin(){
-        this.$router.push('/Search')
+        if (!this.user.username || !this.user.password){
+          alert("用户名或密码不能为空！");
+        }
+        else{
+          this.$router.push('/Search');
+        }
       }
     }
   }

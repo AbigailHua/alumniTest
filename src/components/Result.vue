@@ -1,7 +1,11 @@
 <template>
   <div class="result-cardview">
     <div class="return-button">
-      <el-button type="primary" icon="el-icon-arrow-left" @click="back">返回搜索页面</el-button>
+      <el-button-group v-if="isAdministrator">
+        <el-button type="primary" icon="el-icon-arrow-left" @click="back">返回搜索页面</el-button>
+        <el-button type="primary" @click="add">增加校友</el-button>
+      </el-button-group>
+      <el-button v-else type="primary" icon="el-icon-arrow-left" @click="back">返回搜索页面</el-button>
     </div>
     <div class="iterate">
     <el-row :gutter="0">
@@ -25,10 +29,6 @@
             >
               <el-button slot="reference" icon="el-icon-minus" v-if="isAdministrator" style="float: right; padding: 5px" class="modify"></el-button>
             </el-popconfirm>
-
-            <div style="text-align: right; float: right">
-              <el-button class="modify" icon="el-icon-plus" v-if="isAdministrator" style="float: right; padding: 5px" @click="add"></el-button>
-            </div>
           </div>
 
           <!-- 卡片内容：校友信息 -->
@@ -59,10 +59,6 @@
             >
               <el-button slot="reference" icon="el-icon-minus" v-if="isAdministrator" style="float: right; padding: 5px" class="modify"></el-button>
             </el-popconfirm>
-
-            <div style="text-align: right; float: right">
-              <el-button class="modify" icon="el-icon-plus" v-if="isAdministrator" style="float: right; padding: 5px" @click="add"></el-button>
-            </div>
           </div>
 
           <!-- 卡片内容：校友信息 -->
@@ -75,7 +71,11 @@
     </el-row>
   </div>
   <div class="return-button">
-      <el-button type="primary" icon="el-icon-arrow-left" @click="back">返回搜索页面</el-button>
+      <el-button-group v-if="isAdministrator">
+        <el-button type="primary" icon="el-icon-arrow-left" @click="back">返回搜索页面</el-button>
+        <el-button type="primary" @click="add">增加校友</el-button>
+      </el-button-group>
+      <el-button v-else type="primary" icon="el-icon-arrow-left" @click="back">返回搜索页面</el-button>
   </div>
   </div>
 </template>
@@ -172,7 +172,10 @@ export default {
       this.$router.push('/Edit')
     },
     add(){
-      this.$router.push('/Add')
+      this.$router.replace({
+        path: '/Add',
+        name: 'Add'
+      })
     }
   }
 }

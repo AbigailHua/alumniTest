@@ -4,7 +4,7 @@
       <el-button type="primary" icon="el-icon-arrow-left" @click="back">返回搜索页面</el-button>
     </div>
 
-    <el-card class="box-card">
+    <el-card class="add-card">
       <div class="add-form">
       <el-form ref="form" :model="form" label-width="80px" label-position="right">
         <el-divider content-position="left">基本信息</el-divider><br>
@@ -45,7 +45,11 @@
         <el-row :gutter="50">
           <el-col :span="6">
             <el-form-item label="毕业年份">
-              <el-input-number v-model="form.graduate_year" :min="0" :max="100" label="描述文字"></el-input-number>
+              <el-date-picker
+                v-model="form.graduate_year"
+                type="year"
+                placeholder="选择年">
+              </el-date-picker>
             </el-form-item>
           </el-col>
         </el-row>
@@ -158,11 +162,12 @@
     margin-bottom: 0px;
     text-align: center;
   }
-  .box-card {
+  .add-card {
     margin-top: 50px;
     margin-bottom: 50px;
     margin-left: 120px;
     margin-right: 120px;
+    width: 1000px;
   }
 </style>
 
@@ -197,9 +202,12 @@ export default {
       this.$router.push('/Search')
     },
     onSubmit() {
-        alert("已成功添加！");
-        this.$router.push('/Search')
-      }
+      alert("已成功添加！");
+      this.$router.push('/Search')
+    },
+    reload(){
+      location.reload()
+    }
   }
 }
 </script>
