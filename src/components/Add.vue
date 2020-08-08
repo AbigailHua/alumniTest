@@ -22,8 +22,8 @@
           <el-col :span="8">
             <el-form-item label="性别">
               <el-radio-group v-model="form.gender">
-                <el-radio label="男"></el-radio>
-                <el-radio label="女"></el-radio>
+                <el-radio :label=0>男</el-radio>
+                <el-radio :label=1>女</el-radio>
               </el-radio-group>
             </el-form-item>
           </el-col>
@@ -57,12 +57,12 @@
           <el-col :span="18">
             <el-form-item label="学位类型">
               <el-radio-group v-model="form.type">
-                <el-radio label="学硕"></el-radio>
-                <el-radio label="专硕"></el-radio>
-                <el-radio label="硕士"></el-radio>
-                <el-radio label="学博"></el-radio>
-                <el-radio label="专博"></el-radio>
-                <el-radio label="博士"></el-radio>
+                <el-radio :label=0>学硕</el-radio>
+                <el-radio :label=1>专硕</el-radio>
+                <el-radio :label=2>硕士</el-radio>
+                <el-radio :label=3>学博</el-radio>
+                <el-radio :label=4>专博</el-radio>
+                <el-radio :label=5>博士</el-radio>
               </el-radio-group>
             </el-form-item>
           </el-col>
@@ -139,7 +139,7 @@
         <br><br>
         <el-row>
           <el-form-item>
-            <el-button type="primary" @click="onSubmit">立即创建</el-button>
+            <el-button type="primary" @click="onSubmit">立即添加</el-button>
             <el-button>取消</el-button>
           </el-form-item>
         </el-row>

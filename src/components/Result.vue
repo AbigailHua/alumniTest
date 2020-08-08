@@ -33,8 +33,9 @@
 
           <!-- 卡片内容：校友信息 -->
           <div v-for="(value, key) in item" class="text item">
-            <div class="detail" v-if="key!='id' && key!='name'">{{dict[key] + ": " +value}}</div>
+            <div class="detail" v-if="key!='id' && key!='name' && key!='class'">{{dict[key] + ": " +value}}</div>
           </div>
+          <div class="detail text item">课程：<br><br><el-tag v-for="cls in item.class" style="margin-right: 10px;">{{cls}}</el-tag></div>
           <br>
         </el-card>
       </el-col>
@@ -63,8 +64,9 @@
 
           <!-- 卡片内容：校友信息 -->
           <div v-for="(value, key) in item" class="text item">
-            <div class="detail" v-if="key!='id' && key!='name'">{{dict[key] + ": " +value}}</div>
+            <div class="detail" v-if="key!='id' && key!='name' && key!='class'">{{dict[key] + ": " +value}}</div>
           </div>
+          <div class="detail text item">课程：<br><br><el-tag v-for="cls in item.class" style="margin-right: 10px;">{{cls}}</el-tag></div>
           <br>
         </el-card>
       </el-col>
@@ -139,12 +141,12 @@ export default {
   data() {
     return {
       AlumniInfo: [
-        { id: 1, name: "刘一", age: "45", mentor: "A"},
-        { id: 2, name: "陈二", age: "29", mentor: "B"},
-        { id: 3, name: "张三", age: "24", mentor: "C"},
-        { id: 4, name: "李四", age: "84", mentor: "D"},
-        { id: 5, name: "王五", age: "36", mentor: "E"},
-        { id: 6, name: "赵六", age: "58", mentor: "F"}
+        { id: 1, name: "刘一", age: "45", mentor: "A", class:["机器学习", "计算机网络"]},
+        { id: 2, name: "陈二", age: "29", mentor: "B", class:["人工智能", "计算机网络"]},
+        { id: 3, name: "张三", age: "24", mentor: "C", class:["机器学习", "软件工程"]},
+        { id: 4, name: "李四", age: "84", mentor: "D", class:["数据库", "编译原理"]},
+        { id: 5, name: "王五", age: "36", mentor: "E", class:["移动互联网", "计算机网络"]},
+        { id: 6, name: "赵六", age: "58", mentor: "F", class:["数学分析", "计算机网络"]}
       ],
       dict: {
         name: "姓名",
