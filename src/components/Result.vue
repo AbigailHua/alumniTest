@@ -7,12 +7,27 @@
     <el-row :gutter="0">
       <!-- 左列卡片 -->
       <el-col :span="12">
-        <el-card class="box-card" v-for="(item, idx) in evenFilter(testdata)">
+        <el-card class="box-card" v-for="(item, idx) in evenFilter(AlumniInfo)">
           <!-- 卡片标题：校友名字 -->
           <div slot="header" class="clearfix">
             <div style="text-align: left; float: left; font-weight: 700; letter-spacing: 3px;">{{ item.name }}</div>
+            
             <div style="text-align: right; float: right">
-              <a href="/Edit"><i v-if="isAdministrator" style="float: right; padding: 5px" class="el-icon-edit"></i></a>
+              <el-button class="modify" icon="el-icon-edit" v-if="isAdministrator" style="float: right; padding: 5px" @click="edit"></el-button>
+            </div>
+
+            <el-popconfirm
+              confirmButtonText='是的'
+              cancelButtonText='再想想'
+              icon="el-icon-info"
+              iconColor="red"
+              title="确定删除吗？"
+            >
+              <el-button slot="reference" icon="el-icon-minus" v-if="isAdministrator" style="float: right; padding: 5px" class="modify"></el-button>
+            </el-popconfirm>
+
+            <div style="text-align: right; float: right">
+              <el-button class="modify" icon="el-icon-plus" v-if="isAdministrator" style="float: right; padding: 5px" @click="add"></el-button>
             </div>
           </div>
 
@@ -26,12 +41,27 @@
 
       <!-- 左列卡片 -->
       <el-col :span="12">
-        <el-card class="box-card" v-for="(item, idx) in oddFilter(testdata)">
-          <!-- 卡片标题：校友名字 -->
+        <el-card class="box-card" v-for="(item, idx) in oddFilter(AlumniInfo)">
+         <!-- 卡片标题：校友名字 -->
           <div slot="header" class="clearfix">
             <div style="text-align: left; float: left; font-weight: 700; letter-spacing: 3px;">{{ item.name }}</div>
+            
             <div style="text-align: right; float: right">
-              <a href="/Edit"><i v-if="isAdministrator" style="float: right; padding: 5px" class="el-icon-edit"></i></a>
+              <el-button class="modify" icon="el-icon-edit" v-if="isAdministrator" style="float: right; padding: 5px" @click="edit"></el-button>
+            </div>
+
+            <el-popconfirm
+              confirmButtonText='是的'
+              cancelButtonText='再想想'
+              icon="el-icon-info"
+              iconColor="red"
+              title="确定删除吗？"
+            >
+              <el-button slot="reference" icon="el-icon-minus" v-if="isAdministrator" style="float: right; padding: 5px" class="modify"></el-button>
+            </el-popconfirm>
+
+            <div style="text-align: right; float: right">
+              <el-button class="modify" icon="el-icon-plus" v-if="isAdministrator" style="float: right; padding: 5px" @click="add"></el-button>
             </div>
           </div>
 
@@ -94,6 +124,10 @@
     letter-spacing: 1px;
   }
 
+  .modify {
+    border: 0px;
+  }
+
   a:link{color:#409EFF;}
 
   a:visited{color:#409EFF;}
@@ -104,7 +138,7 @@
 export default {
   data() {
     return {
-      testdata: [
+      AlumniInfo: [
         { id: 1, name: "刘一", age: "45", mentor: "A"},
         { id: 2, name: "陈二", age: "29", mentor: "B"},
         { id: 3, name: "张三", age: "24", mentor: "C"},
@@ -121,18 +155,24 @@ export default {
     }
   },
   methods: {
-    evenFilter: function(testdata) {
-      return testdata.filter(function (item, idx) {
+    evenFilter: function(AlumniInfo) {
+      return AlumniInfo.filter(function (item, idx) {
         return idx % 2 === 0
       })
     },
-    oddFilter: function(testdata) {
-      return testdata.filter(function (item, idx) {
+    oddFilter: function(AlumniInfo) {
+      return AlumniInfo.filter(function (item, idx) {
         return idx % 2 === 1
       })
     },
     back(){
       this.$router.push('/Search')
+    },
+    edit(){
+      this.$router.push('/Edit')
+    },
+    add(){
+      this.$router.push('/Add')
     }
   }
 }
