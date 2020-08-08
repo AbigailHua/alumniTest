@@ -37,40 +37,40 @@ export default {
     return {
       search_options : [
         {
-          value: '课程',
-          label: 'class'
+          value: 'class',
+          label: '课程'
         },
         {
-          value: '姓名',
-          label: 'name'
+          value: 'name',
+          label: '姓名'
         },
         {
-          value: '学位',
-          label: 'type'
+          value: 'type',
+          label: '学位'
         },
         {
-          value: '本科学校',
-          label: 'bachelor_school'
+          value: 'bachelor_school',
+          label: '本科学校'
         },
         {
-          value: '本科专业',
-          label: 'bachelor_major'
+          value: 'bachelor_major',
+          label: '本科专业'
         },
         {
-          value: '硕士学校',
-          label: 'master_school'
+          value: 'master_school',
+          label: '硕士学校'
         },
         {
-          value: '硕士专业',
-          label: 'master_major'
+          value: 'master_major',
+          label: '硕士专业'
         },
         {
-          value: '单位性质',
-          label: 'employer_type'
+          value: 'employer_type',
+          label: '单位性质'
         },
         {
-          value: '导师',
-          label: 'mentor'
+          value: 'mentor',
+          label: '导师'
         }
       ],
       search_input: '',
