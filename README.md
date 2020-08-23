@@ -1,8 +1,10 @@
 # alumnitest
 
-> A Vue.js project
+一个基于Vue.js的校友信息查询系统（仅包含UI，不包括后端）
 
-## Build Setup
+## 安装配置
+
+#### 安装并运行Vue.js
 
 ``` bash
 # install dependencies
@@ -18,4 +20,32 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+#### 安装element-ui
+
+``` bash
+# install dependencies
+npm i element-ui -S
+```
+
+## 效果展示
+
+#### 登录页面
+
+实现简单检测：用户名和密码不能为空
+
+<img src="./demo-img/login.png" width="600">
+
+#### 搜索页面
+
+<img src="./demo-img/search.png" width="600">
+
+#### 结果页面
+
+（非管理员`增加校友`按钮会被隐藏）
+
+<img src="./demo-img/result.png" width="600">
+
+#### 信息修改/增加校友页面
+
+<img src="./demo-img/modify.png" width="600">
+
